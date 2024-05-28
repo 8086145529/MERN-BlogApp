@@ -16,7 +16,7 @@ import Protected from './components/Protected';
 function App() {
   return (
     <>
-   <ToastContainer position='top-right' theme='light'/>
+   <ToastContainer  position='top-right' theme='light' />
     <Routes> 
       <Route path="/" element={<Layout />}>
         {/* The purpose of assigning an 'index' property to the route of a child component inside a parent component is to provide a fallback or default behavior when none of the specific child routes match.  */}

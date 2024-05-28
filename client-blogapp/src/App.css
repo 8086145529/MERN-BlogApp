@@ -50,9 +50,6 @@ div.post{
 
 
 
-
-
-
 div.post div.texts h2{
     margin:0;
     font-size: 2rem;
@@ -76,6 +73,14 @@ div.post p.summary{
     margin:10px 0;
     line-height: 1.8rem;
 }
+
+.post .image img{
+
+ width: 25rem;
+ height: 17rem;
+ object-fit: cover;
+}
+
 
 form.login, form.register{
     max-width: 400px;
@@ -107,13 +112,29 @@ form.login h1, form.register h1{
 div.post-page div.image{
     max-height:300px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     overflow:hidden;
 }
 div.post-page div.image img{
-    object-fit: cover;
+    object-fit: contain;
     object-position: center center;
-    width: 100%;
+    max-width: 650px;
 }
+
+.content {
+    font-size: 17px; 
+    font-weight:500
+  }
+
+@media screen and (min-width: 800px) {
+   div.post-page div.image img{
+    object-fit: contain;
+    object-position: center center;
+    max-width: 800px;
+   }
+}
+
 div.post-page a{
     color:#333;
     text-decoration: underline;
@@ -181,3 +202,6 @@ div.post-page a.edit-btn{
     height:20px;
 }
 
+.Toastify__toast-container {
+    width: 10px;
+}

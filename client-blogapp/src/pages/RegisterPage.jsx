@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 function RegisterPage() {
 const [username,setUsername] = useState('');
@@ -12,9 +13,13 @@ async function register(ev) {
     headers: {'Content-Type':'application/json'},
   });
   if (response.status === 200) {
-    alert('registration successful');
+    toast.success("Registration successful",{
+      theme:'colored'
+  })
   } else {
-    alert('registration failed');
+    toast.warning("Registration failed",{
+      theme:'colored'
+  })
   }
 }
 

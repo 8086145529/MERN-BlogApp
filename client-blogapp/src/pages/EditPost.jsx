@@ -9,7 +9,7 @@ function EditPost() {
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('')
     const [content, setContent] = useState('')
-    const [files, setFiles] = useState('')
+    const [files, setFiles] = useState(null)
     const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function EditPost() {
                 setContent(postInfo.content);
             })
         })
-    }, [])
+    }, [id])
 
   
 
@@ -41,7 +41,7 @@ function EditPost() {
         body:formData,
         credentials:'include'
        })
-       console.log(response);
+
        if(response.ok){
         setRedirect(true)
         toast.info("Post edited",{
