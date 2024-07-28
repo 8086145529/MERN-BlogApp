@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 const User = require('./models/User')
 const Post = require('./models/Post')
 const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const multer  = require('multer')
 const uploadMiddleware = multer({ dest: 'uploads/' })
@@ -14,11 +13,10 @@ const fs = require('fs');
 
 
 const salt = bcrypt.genSaltSync(10);// For hashing password
-dotenv.config();// 1. This loads/moves environment variables (like PORT) from the .env file into process.env.So that we can aceess the environment variable using process.env
-const PORT = process.env.PORT || 7000
-const MONGOURL =process.env.MONGO_URL;
+const PORT = 8000 || 7000
+const MONGOURL = "mongodb://127.0.0.1/MERN-blog"
 
-const JWT_SECRET = process.env.secret
+const JWT_SECRET = 'lklklklklklklklklklk'
 
 app.use(cors({credentials:true,origin:'http://localhost:3000'}))
 app.use(express.json())
@@ -33,14 +31,6 @@ mongoose.connect(MONGOURL).then(()=>{
   })
 }).catch((error)=>console.log(`${error} didn't connect`));
 
-// mongoose.connect('mongodb://127.0.0.1/test', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-// mongoose.connect('mongodb+srv://new-user:test2024@cluster0.qv3i2uq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-// mongoose.connect('mongodb+srv://shafanafaiza:WbxeHSprlRVkBr7x@cluster0.qv3i2uq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-// mongodb+srv://shafanafaiza:WbxeHSprlRVkBr7x@cluster0.qv3i2uq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 
 
 
 app.post('/register', async (req,res) => {
@@ -121,11 +111,11 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{
 res.json(postDoc)
  
    
-  // file:newPath
+ 
 
  })
  
-//  res.json(postDoc)
+
 })
 
 
@@ -181,17 +171,10 @@ app.delete('/post/:id',async (req,res)=>{
   const {id} = req.params
   const deletedPost = await Post.findByIdAndDelete(id);
   res.json('post deleted')
-  // if (!deletedPost){
-  //   return res.status(404).json({error:'Post not found'})
-  // }
+
 }catch(error){
   res.json('Error deleting post',error)
 }
 })
 
 
-// app.listen(4000,()=>{
-//     console.log('Server is running');
-// })
-
-// WbxeHSprlRVkBr7x

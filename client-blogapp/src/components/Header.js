@@ -34,19 +34,19 @@ function logout(){
 const username = userInfo?.username;
 
   return (
-    <header>
+    <header className='header'>
     <Link to="/" className="logo">MyBlog</Link>
     <nav>
       {username && (
         <>
-          <Link to="/create">Create new post</Link>
-          <a onClick={logout}>Logout ({username})</a>
+          <Link to="/create"className='button'>Create new post</Link>
+          <a onClick={logout} className='logoutbtn'>Logout ({username})</a>
         </>
       )}
       {!username && (
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          <Link to="/login"className='button'>Login</Link>
+          <Link to="/register"className='registerbtn'>Register</Link>
         </>
       )}
     </nav>

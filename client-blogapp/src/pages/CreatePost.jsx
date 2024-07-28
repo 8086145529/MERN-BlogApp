@@ -38,7 +38,7 @@ function CreatePost() {
         <input type="summary" placeholder='Summary' value={summary} onChange={(e)=>setSummary(e.target.value)}/>
         <input type="file"  onChange={(e)=> setFiles(e.target.files)}/>
         <Editor value={content} onChange={setContent} />
-        <button style={{marginTop:'5px'}}>Create post</button>
+        <button style={{marginTop:'5px',backgroundColor:'#32CD32',fontWeight:'700'}}>Create post</button>
     </form>
   )
 }
